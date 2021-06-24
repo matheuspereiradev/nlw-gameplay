@@ -1,4 +1,5 @@
 import { SignIn } from './src/screens/SignIn';
+import { Home } from './src/screens/Home';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font'
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <Background>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-      <SignIn />
+      <Home />
     </Background>
 
   );
