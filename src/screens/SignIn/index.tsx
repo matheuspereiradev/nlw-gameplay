@@ -1,18 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { useState } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Button, StatusBar } from 'react-native';
 import { style } from './style';
 import Illustration from '../../assets/illustration.png'
+import { ButtonIcon } from '../../components/ButtonIcon'
 
 export function SignIn() {
-    const [name, setName] = useState('');
 
     return (
         <View style={style.container}>
-            <Image source={Illustration} />
-            <Text>Oi, {name}</Text>
+            <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+            <Image source={Illustration} style={style.image} resizeMode="stretch" />
 
-        </View>
+            <View style={style.content}>
+                <Text style={style.title}>
+                    Conecte-se {"\n"}
+                    e organize suas{"\n"}
+                    jogatinas
+                </Text>
+                <Text style={style.subtitle}>
+                    Crie grupos para jogar seus games{"\n"}
+                    favoritos com seus amigos
+                </Text>
+                <ButtonIcon text="Entrar com discord" activeOpacity={0.7} />
+            </View >
+
+
+        </View >
     );
 }
