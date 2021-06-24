@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
 import { colors } from '../../values/colors'
+import { fonts } from '../../values/fonts'
 
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundPrimary,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -16,12 +16,15 @@ export const style = StyleSheet.create({
         color: colors.textsColors,
         fontSize: 40,
         textAlign: 'center',
-        fontWeight: '700',
-        marginBottom: 16
+        fontFamily: fonts.title700,
+        marginBottom: 16,
+        lineHeight: 40
     },
     subtitle: {
         color: colors.textsColors,
         fontSize: 16,
+        lineHeight: 25,
+        fontFamily: fonts.title500,
         textAlign: 'center',
         marginBottom: 64
     },
