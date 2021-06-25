@@ -1,5 +1,5 @@
 import { SignIn } from './src/screens/SignIn';
-import { Home } from './src/screens/Home';
+import { Routes } from './src/routes';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font'
@@ -23,7 +23,7 @@ export default function App() {
   return (
     <Background>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-      <Home />
+      <Routes />
     </Background>
 
   );
