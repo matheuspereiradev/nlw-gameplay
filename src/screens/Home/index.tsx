@@ -7,6 +7,7 @@ import { CategorySelect } from '../../components/CategorySelect';
 import { ListHeader } from '../../components/ListHeader';
 import { ListDivider } from '../../components/ListDivisor';
 import { Appointment } from '../../components/Appointment';
+import { Background } from '../../components/Background';
 
 export function Home() {
     const [category, setCategory] = useState('');
@@ -43,35 +44,38 @@ export function Home() {
     }
 
     return (
-        <View>
-            <View style={style.header}>
-                <Profile />
-                <ButtonAdd />
-            </View>
-            <CategorySelect
-                categorySelected={category}
-                setCategory={handleCategorySelect}
-            />
+        <Background>
 
-            <View style={style.content}>
-                <ListHeader
-                    title="Partidas agendadas"
-                    subtitle="Total 6"
+            <View>
+                <View style={style.header}>
+                    <Profile />
+                    <ButtonAdd />
+                </View>
+                <CategorySelect
+                    categorySelected={category}
+                    setCategory={handleCategorySelect}
                 />
-            </View>
 
-            <FlatList
-                data={appointments}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => (
-                    <Appointment data={item} />
-                )}
-                ItemSeparatorComponent={() => <ListDivider />}
-                style={style.matches}
-                showsVerticalScrollIndicator={false}
+                <View style={style.content}>
+                    <ListHeader
+                        title="Partidas agendadas"
+                        subtitle="Total 6"
+                    />
+                </View>
 
-            />
-        </View >
+                <FlatList
+                    data={appointments}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => (
+                        <Appointment data={item} />
+                    )}
+                    ItemSeparatorComponent={() => <ListDivider />}
+                    style={style.matches}
+                    showsVerticalScrollIndicator={false}
+
+                />
+            </View >
+        </Background>
     );
 }
 

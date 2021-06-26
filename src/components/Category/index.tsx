@@ -10,6 +10,7 @@ import { colors } from '../../values/colors';
 type Props = RectButtonProps & {
     title: string;
     icon: React.FC<SvgProps>;
+    hasCheckBox?: boolean;
     checked?: boolean;
 }
 
@@ -17,20 +18,27 @@ export function Category({
     title,
     icon: Icon,
     checked = false,
+    hasCheckBox,
     ...rest
 }: Props) {
-    const { blue40, blue70 } = colors;
+    const { blue40, blue70, blue85, blue50 } = colors;
 
     return (
         <RectButton {...rest}>
             <LinearGradient
                 style={style.container}
-                colors={[blue40, blue70]}
+                colors={[blue50, blue70]}
             >
-                <View style={[style.content, { opacity: checked ? 1 : 0.4 }]}>
-                    <View style={
-                        checked ? style.checked : style.check
-                    } />
+                <LinearGradient
+                    style={[style.content, { opacity: checked ? 1 : 0.5 }]}
+                    colors={[checked ? blue85 : blue50, blue40]}
+                >
+                    {
+                        hasCheckBox &&
+                        <View style={
+                            checked ? style.checked : style.check
+                        } />
+                    }
 
                     <Icon
                         width={48}
@@ -40,7 +48,7 @@ export function Category({
                     <Text style={style.title}>
                         {title}
                     </Text>
-                </View>
+                </LinearGradient>
             </LinearGradient>
         </RectButton>
     );
